@@ -5,7 +5,7 @@ import connectDB from './config/db';
 import ingressoRoutes from './routes/ingressoRoutes';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = parseInt(process.env.PORT || '3001');
 
 connectDB();
 
@@ -18,6 +18,6 @@ app.get('/', (req, res) => {
   res.send('API do Microserviço de Ingressos está no ar!');
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor de Ingressos rodando na porta ${PORT}`);
 });
