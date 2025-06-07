@@ -6,7 +6,6 @@ export interface IIngresso extends Document {
   filmeTitulo: string;
   dataHoraSessao: Date;
   sala: string;
-  assento: string;
   preco: number;
 }
 
@@ -16,7 +15,6 @@ const IngressoSchema: Schema = new Schema({
   filmeTitulo: { type: String, required: true },
   dataHoraSessao: { type: Date, required: true },
   sala: { type: String, required: true },
-  assento: { type: String, required: true },
   preco: { type: Number, required: true },
 }, { 
   timestamps: true 

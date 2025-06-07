@@ -10,10 +10,10 @@ export const comprarIngresso = async (req: Request, res: Response) => {
     return;
   }
 
-  const { sessaoId, assento } = req.body;
+  const { sessaoId } = req.body;
 
   try {
-    // validar sessào
+    // validar sessão
     const sessao = await buscarSessaoPorId(sessaoId);
     if (!sessao) {
       res.status(404).json({ message: `Sessão com ID ${sessaoId} não encontrada.` });
@@ -26,14 +26,12 @@ export const comprarIngresso = async (req: Request, res: Response) => {
       return;
     }
 
-    
     const novoIngresso = await ingressoRepository.create({
       sessaoId: sessao._id,
       filmeId: sessao.filme.id,
       filmeTitulo: sessao.filme.titulo,
       dataHoraSessao: new Date(sessao.dataHora),
       sala: sessao.sala,
-      assento,
       preco: sessao.preco, 
     });
 

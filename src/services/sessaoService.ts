@@ -2,11 +2,12 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import { Sessao } from '../types/Sessao';
 
+
 dotenv.config();
 
 const sessaoServiceApi = axios.create({
   baseURL: process.env.SESSAO_SERVICE_URL,
-  timeout: 10000, // 10 segundos de timeout
+  timeout: 10000, 
 });
 
 const MAX_RETRIES = 3;

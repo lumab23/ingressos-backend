@@ -6,7 +6,6 @@ const router = Router();
 
 const validacaoCompra = [
   body('sessaoId').isMongoId().withMessage('O ID da sessão é obrigatório e deve ser válido.'),
-  body('assento').isString().notEmpty().withMessage('O número do assento é obrigatório.'),
 ];
 
 router.post('/', validacaoCompra, comprarIngresso);
