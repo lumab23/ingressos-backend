@@ -13,6 +13,10 @@ class IngressoRepository {
   async findAll(): Promise<IIngresso[]> {
     return Ingresso.find().exec();
   }
+
+  async deleteById(id: string): Promise<IIngresso | null> {
+    return Ingresso.findByIdAndDelete(id).exec();
+  }
 }
 
 export default new IngressoRepository();

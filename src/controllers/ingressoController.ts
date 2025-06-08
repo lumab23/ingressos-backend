@@ -55,3 +55,12 @@ export const buscarIngressoPorId = async (req: Request, res: Response) => {
     }
     res.status(200).json(ingresso);
 }
+
+export const deletarIngresso = async (req: Request, res: Response) => {
+    const ingresso = await ingressoRepository.deleteById(req.params.id);
+    if (!ingresso) {
+        res.status(404).json({ message: 'Ingresso não encontrado.' });
+        return;
+    }
+    res.status(200).json({ message: 'Ingresso deletado com sucesso.' });
+}
